@@ -39,25 +39,25 @@ void	ft_number_sprite(t_program *p)
 	static int	x = 7;
 	static int	y = 10;
 
-	p->num.zero = mlx_xpm_file_to_image(p->mlx, NUM_0,
+	p->num.zero = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/0.xpm",
 			&x, &y);
-	p->num.one = mlx_xpm_file_to_image(p->mlx, NUM_1, 
+	p->num.one = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/1.xpm",
 			&x, &y);
-	p->num.two = mlx_xpm_file_to_image(p->mlx, NUM_2, 
+	p->num.two = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/2.xpm",
 			&x, &y);
-	p->num.three = mlx_xpm_file_to_image(p->mlx, NUM_3, 
+	p->num.three = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/3.xpm",
 			&x, &y);
-	p->num.four = mlx_xpm_file_to_image(p->mlx, NUM_4, 
+	p->num.four = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/4.xpm",
 			&x, &y);
-	p->num.five = mlx_xpm_file_to_image(p->mlx, NUM_5,
+	p->num.five = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/5.xpm",
 			&x, &y);
-	p->num.six = mlx_xpm_file_to_image(p->mlx, NUM_6,
+	p->num.six = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/6.xpm",
 			&x, &y);
-	p->num.seven = mlx_xpm_file_to_image(p->mlx, NUM_7,
+	p->num.seven = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/7.xpm",
 			&x, &y);
-	p->num.eight = mlx_xpm_file_to_image(p->mlx, NUM_8,
+	p->num.eight = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/8.xpm",
 			&x, &y);
-	p->num.nine = mlx_xpm_file_to_image(p->mlx, NUM_9,
+	p->num.nine = mlx_xpm_file_to_image(p->mlx, "./imgs/Num/9.xpm",
 			&x, &y);
 }
 
@@ -88,9 +88,10 @@ void	ft_put_num(t_program *p, int count, float x)
 void	ft_count_move(t_program *p)
 {
 	static int	count = 0;
+	char	*str;
 
 	count++;
-	if (count <= 9)
+	/*if (count <= 9)
 		ft_put_num(p, count, 25.5);
 	else if (count <= 99)
 	{
@@ -102,5 +103,9 @@ void	ft_count_move(t_program *p)
 		ft_put_num(p, count % 10, 25.5);
 		ft_put_num(p, count / 10 % 10, 34);
 		ft_put_num(p, count / 100, 41);
-	}
+	}*/
+	str = ft_itoa(p->count);
+		mlx_string_put(p->mlx, p->win, 25, 25, 0xFFFF00,
+			"CURRENT STEP:");
+		mlx_string_put(p->mlx, p->win, 120, 25, 0xFFFF00, str);
 }

@@ -6,14 +6,14 @@
 /*   By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:59:10 by mgiovana          #+#    #+#             */
-/*   Updated: 2023/02/23 14:27:11 by mgiovana         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:33:54 by mgiovana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "minilibx/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include "./src/libft/libft.h"
 # include "./src/Printf/ft_printf.h"
 # include "./src/GNL/get_next_line.h"
@@ -22,6 +22,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <time.h>
 
 # define SIZE 32
 
@@ -40,22 +41,13 @@
 
 # define PATH_W "./imgs/wall.xpm"
 # define PATH_E "./imgs/empty.xpm"
-# define PATH_EX "./imgs/exit.xpm"
-# define PATH_I "./imgs/item.xpm"
+# define PATH_EX_O "./imgs/exit_o.xpm"
+# define PATH_EX_C "./imgs/exit_c.xpm"
 # define PATH_G "./imgs/goblin.xpm"
 
-# define NUM_0 "./Textures/Num/0.xpm"
-# define NUM_1 "./Textures/Num/1.xpm"
-# define NUM_2 "./Textures/Num/2.xpm"
-# define NUM_3 "./Textures/Num/3.xpm"
-# define NUM_4 "./Textures/Num/4.xpm"
-# define NUM_5 "./Textures/Num/5.xpm"
-# define NUM_6 "./Textures/Num/6.xpm"
-# define NUM_7 "./Textures/Num/7.xpm"
-# define NUM_8 "./Textures/Num/8.xpm"
-# define NUM_9 "./Textures/Num/9.xpm"
-
-# define BUFFER_SIZE 1
+# define PATH_C_1 "./imgs/item_1.xpm"
+# define PATH_C_2 "./imgs/item_2.xpm"
+# define PATH_C_3 "./imgs/item_3.xpm"
 
 typedef struct s_vector {
 	int			x;
@@ -108,14 +100,14 @@ typedef struct s_num {
 	int			pos_x;
 }				t_num;
 
-typedef struct s_enemy {
+/*typedef struct s_enemy {
 	void		*img;
 	t_vector	pos;
 	int			count;
 	int			random;
 	int			wait;
 	void		*lose;
-}				t_enemy;
+}				t_enemy;*/
 
 typedef struct s_program {
 	void		*mlx;
@@ -123,11 +115,12 @@ typedef struct s_program {
 	t_player	player;
 	t_exit		exit;
 	t_sprite	sprite;
-	t_matrix	matrix;
 	int			collect;
+	int		count;
+	t_matrix	matrix;
 	t_num		num;
-	t_enemy		enemy;
-	void		**anim;
+	//t_enemy		enemy;
+	//void		**anim;
 	int			end;
 }				t_program;
 
@@ -142,10 +135,10 @@ void	ft_win(t_program *p, int count);
 void	ft_number_sprite(t_program *p);
 void	ft_count_move(t_program *p);
 void	ft_destroy_num(t_program *p);
-int		enemy_move(void *param);
-void	ft_ghost_sprite(t_program *p, int x, int y);
-int		ft_animation(t_program *p);
-void	ft_destroy_anim(t_program *p);
-void	ft_lose(t_program *p);
+//int		enemy_move(void *param);
+//void	ft_ghost_sprite(t_program *p, int x, int y);
+//int		ft_animation(t_program *p);
+//void	ft_destroy_anim(t_program *p);
+//void	ft_lose(t_program *p);
 
 #endif
