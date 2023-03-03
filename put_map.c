@@ -20,10 +20,10 @@ void	ft_destroyer(t_program *p)
 	mlx_destroy_image(p->mlx, p->sprite.floor);
 	mlx_destroy_image(p->mlx, p->player.img);
 	mlx_destroy_image(p->mlx, p->exit.open);
-	mlx_destroy_image(p->mlx, p->enemy.img);
-	mlx_destroy_image(p->mlx, p->enemy.lose);
+	//mlx_destroy_image(p->mlx, p->enemy.img);
+	//mlx_destroy_image(p->mlx, p->enemy.lose);
 	ft_destroy_num(p);
-	ft_destroy_anim(p);
+	//ft_destroy_anim(p);
 }
 
 void	ft_sprite(t_program *p)
@@ -31,24 +31,24 @@ void	ft_sprite(t_program *p)
 	static int	x = 32;
 	static int	y = 32;
 
-	p->sprite.wall = mlx_xpm_file_to_image(p->mlx, "./Textures/wall50.xpm",
+	p->sprite.wall = mlx_xpm_file_to_image(p->mlx, PATH_W ,
 			&x, &y);
-	p->player.img = mlx_xpm_file_to_image(p->mlx, "./Textures/ghost1.xpm",
+	p->player.img = mlx_xpm_file_to_image(p->mlx, PATH_PD ,
 			&x, &y);
-	p->sprite.floor = mlx_xpm_file_to_image(p->mlx, "./Textures/floor50.xpm",
+	p->sprite.floor = mlx_xpm_file_to_image(p->mlx, PATH_E ,
 			&x, &y);
-	p->sprite.collect = mlx_xpm_file_to_image(p->mlx, "./Textures/key.xpm",
+	p->sprite.collect = mlx_xpm_file_to_image(p->mlx, PATH_C_1 ,
 			&x, &y);
-	p->sprite.exit = mlx_xpm_file_to_image(p->mlx, "./Textures/door.xpm",
+	p->sprite.exit = mlx_xpm_file_to_image(p->mlx, PATH_EX_C,
 			&x, &y);
-	p->exit.open = mlx_xpm_file_to_image(p->mlx, "./Textures/open_d.xpm",
+	p->exit.open = mlx_xpm_file_to_image(p->mlx, PATH_EX_O,
 			&x, &y);
-	p->enemy.img = mlx_xpm_file_to_image(p->mlx, "./Textures/enemy.xpm",
-			&x, &y);
-	p->enemy.lose = mlx_xpm_file_to_image(p->mlx, "./Textures/lose.xpm",
-			&x, &y);
+	//p->enemy.img = mlx_xpm_file_to_image(p->mlx, PATH_G ,
+	//		&x, &y);
+	//p->enemy.lose = mlx_xpm_file_to_image(p->mlx, PATH_G,
+	//		&x, &y);
 	ft_number_sprite(p);
-	ft_ghost_sprite(p, x, y);
+	//ft_ghost_sprite(p, x, y);
 }
 
 void	ft_put_map(t_program *p, char c)
@@ -68,9 +68,9 @@ void	ft_put_map(t_program *p, char c)
 	else if (c == 'E')
 		mlx_put_image_to_window(p->mlx, p->win.win, p->sprite.exit,
 			p->matrix.y * SIZE, p->matrix.x * SIZE);
-	else if (c == 'K')
+	/*else if (c == 'K')
 		mlx_put_image_to_window(p->mlx, p->win.win, p->enemy.img,
-			p->matrix.y * SIZE, p->matrix.x * SIZE);
+			p->matrix.y * SIZE, p->matrix.x * SIZE);*/
 	mlx_put_image_to_window(p->mlx, p->win.win, p->num.zero, p->num.pos_x
 		* SIZE - 25.5, 20);
 }
@@ -87,12 +87,12 @@ void	ft_position(t_program *p)
 		p->exit.pos.x = p->matrix.x;
 		p->exit.pos.y = p->matrix.y;
 	}
-	else if (p->matrix.mat[p->matrix.x][p->matrix.y] == 'K')
+	/*else if (p->matrix.mat[p->matrix.x][p->matrix.y] == 'K')
 	{
 		p->enemy.count++;
 		p->enemy.pos.x = p->matrix.x;
 		p->enemy.pos.y = p->matrix.y;
-	}
+	}*/
 	else if (p->matrix.mat[p->matrix.x][p->matrix.y] == 'C')
 		p->collect++;
 }
@@ -101,7 +101,7 @@ void	ft_map(t_program *p)
 {
 	p->matrix.x = 0;
 	p->collect = 0;
-	p->enemy.count = 0;
+	//p->enemy.count = 0;
 	ft_sprite(p);
 	while (p->matrix.lines > 0)
 	{

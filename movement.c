@@ -108,10 +108,10 @@ int	ft_key(int key, void *param)
 			ft_down_mov(p, &count);
 		if (key == RIGHT || key == LEFT || key == TOP || key == DOWN)
 			ft_count_move (p);
-		ft_printf ("Key pressed: %d\n", key);
+		//ft_printf ("Key pressed: %d\n", key);
 	}
 	ft_win(p, count);
-	if (p->enemy.count > 0)
-		ft_lose(p);
+	//if (p->enemy.count > 0)
+	//	ft_lose(p);
 	return (0);
 }

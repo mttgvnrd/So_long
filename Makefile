@@ -6,13 +6,13 @@
 #    By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 15:14:54 by mgiovana          #+#    #+#              #
-#    Updated: 2023/02/23 14:32:54 by mgiovana         ###   ########.fr        #
+#    Updated: 2023/03/03 15:26:07 by mgiovana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c map_error.c game_utils.c put_map.c movement.c move_counter.c enemy.c animation.c
+SRC = so_long.c map_error.c game_utils.c put_map.c movement.c move_counter.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -36,7 +36,7 @@ printf:
         
 gnl:
 	make -s -C src/GNL
-
+	
 $(NAME): $(OBJ)
 	@echo "\033[32mCompiling $(NAME) 🚀"
 	@gcc $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) $(LINK) -o $(NAME)
@@ -58,4 +58,4 @@ fclean: clean
 
 re: fclean all
 
-.SILENT: $(OBJ) lib printf GNL
+.SILENT: $(OBJ) lib printf gnl
