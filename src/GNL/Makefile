@@ -6,7 +6,7 @@
 #    By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 11:53:56 by mgiovana          #+#    #+#              #
-#    Updated: 2023/02/20 12:04:10 by mgiovana         ###   ########.fr        #
+#    Updated: 2023/03/02 12:02:17 by mgiovana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,5 @@ re:			fclean all
 
 bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-                                
+				
 .SILENT:
-
-

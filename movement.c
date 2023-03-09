@@ -26,8 +26,9 @@ void	ft_r_mov(t_program *p, int *count)
 		if (p->matrix.mat[p->player.pos.x][p->player.pos.y] == 'C')
 			*count += 1;
 		p->matrix.mat[p->player.pos.x][p->player.pos.y] = 'P';
-		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img,
+		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img_r,
 			p->player.pos.y * SIZE, p->player.pos.x * SIZE);
+		ft_printf ("Key pressed: RIGHT (100)\n");
 	}
 }
 
@@ -45,8 +46,9 @@ void	ft_l_mov(t_program *p, int *count)
 		if (p->matrix.mat[p->player.pos.x][p->player.pos.y] == 'C')
 			*count += 1;
 		p->matrix.mat[p->player.pos.x][p->player.pos.y] = 'P';
-		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img,
+		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img_l,
 			p->player.pos.y * SIZE, p->player.pos.x * SIZE);
+		ft_printf ("Key pressed: LEFT (97)\n");
 	}
 }
 
@@ -64,8 +66,9 @@ void	ft_up_mov(t_program *p, int *count)
 		if (p->matrix.mat[p->player.pos.x][p->player.pos.y] == 'C')
 			*count += 1;
 		p->matrix.mat[p->player.pos.x][p->player.pos.y] = 'P';
-		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img,
+		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img_t,
 			p->player.pos.y * SIZE, p->player.pos.x * SIZE);
+		ft_printf ("Key pressed: TOP (119)\n");
 	}
 }
 
@@ -83,8 +86,9 @@ void	ft_down_mov(t_program *p, int *count)
 		if (p->matrix.mat[p->player.pos.x][p->player.pos.y] == 'C')
 			*count += 1;
 		p->matrix.mat[p->player.pos.x][p->player.pos.y] = 'P';
-		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img,
+		mlx_put_image_to_window(p->mlx, p->win.win, p->player.img_d,
 			p->player.pos.y * SIZE, p->player.pos.x * SIZE);
+		ft_printf ("Key pressed: DOWN (115)\n");
 	}
 }
 
@@ -106,12 +110,7 @@ int	ft_key(int key, void *param)
 			ft_up_mov(p, &count);
 		else if (key == DOWN)
 			ft_down_mov(p, &count);
-		if (key == RIGHT || key == LEFT || key == TOP || key == DOWN)
-			ft_count_move (p);
-		//ft_printf ("Key pressed: %d\n", key);
 	}
 	ft_win(p, count);
-	//if (p->enemy.count > 0)
-	//	ft_lose(p);
 	return (0);
 }

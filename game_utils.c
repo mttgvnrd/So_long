@@ -18,7 +18,7 @@ void	game_start(t_program *p)
 	p->win.size.x = ft_strlen(p->matrix.mat[p->matrix.x]);
 	p->win.size.y = p->matrix.lines;
 	p->win.win = mlx_new_window(p->mlx, p->win.size.x * SIZE,
-			p->win.size.y * SIZE, "so_long");
+			p->win.size.y * SIZE, "so_long mgiovana");
 	p->exit.win = 0;
 	ft_map(p);
 }
@@ -84,31 +84,10 @@ void	ft_win(t_program *p, int count)
 			p->end = 1;
 			mlx_clear_window(p->mlx, p->win.win);
 			mlx_string_put(p->mlx, p->win.win, p->win.size.x * SIZE / 2 - 25,
-				p->win.size.y * SIZE / 2, 0xFFFF0000, "YOU WIN!");
-			ft_printf("Close game with ESC or ✖\n");
+				p->win.size.y * SIZE / 2, 0xFF0000FF, "YOU WIN!");
+			ft_printf("Close game with ESC\n");
 			flag = 1;
 		}
 	}
 	return ;
 }
-
-/*void	ft_lose(t_program *p)
-{
-	static int	flag = 0;
-
-	if (flag == 0)
-	{
-		if (p->player.pos.x == p->enemy.pos.x
-			&& p->player.pos.y == p->enemy.pos.y)
-		{
-			mlx_put_image_to_window(p->mlx, p->win.win, p->enemy.lose,
-				p->enemy.pos.y * SIZE, p->enemy.pos.x * SIZE);
-			p->end = 1;
-			mlx_string_put(p->mlx, p->win.win, p->win.size.x * SIZE / 2 - 25,
-				p->win.size.y * SIZE / 2, 0xFFFF0000, "YOU LOSE!");
-			ft_printf("Close game with ESC or ✖\n");
-			flag++;
-		}
-	}
-	return ;
-}*/

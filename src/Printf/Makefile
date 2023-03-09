@@ -6,34 +6,34 @@
 #    By: mgiovana <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/07 15:28:06 by mgiovana          #+#    #+#              #
-#    Updated: 2023/02/20 12:20:02 by mgiovana         ###   ########.fr        #
+#    Updated: 2023/02/28 14:59:59 by mgiovana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS                    =       ft_printf.c ft_itoa.c ft_unsign.c ft_hexa.c ft_utility.c \
+SRCS	=	ft_printf.c ft_itoa.c ft_unsign.c ft_hexa.c ft_utility.c \
                                         ft_putptrn.c
                 
-OBJS                    = $(SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
-CC                              = gcc
+CC	= gcc
 
-CFLAGS                  = -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror
 
-RM                              = rm -f
+RM	= rm -f
 
-NAME                    = libftprintf.a
+NAME	= libftprintf.a
 
-all:                    $(NAME)
+all:			$(NAME)
 
-$(NAME):                $(OBJS)
+$(NAME):		$(OBJS)
 				ar rcs $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
 
-fclean:                 clean
-                                $(RM) $(NAME)
+fclean:			clean
+				$(RM) $(NAME)
 
-re:                             fclean all
+re:				fclean all
 
 .SILENT:

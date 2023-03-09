@@ -28,7 +28,6 @@ int	ft_wall_controll(t_program *p, int x, int y, int flag)
 				return (1);
 			y++;
 		}
-		p->num.pos_x = y;
 	}
 	return (0);
 }
@@ -43,7 +42,7 @@ int	ft_lines_controll(t_program *p, int x, int y, int len)
 		{
 			if (p->matrix.mat[x][y] != 'C' && p->matrix.mat[x][y] != 'E' &&
 				p->matrix.mat[x][y] != 'P' && p->matrix.mat[x][y] != '0' &&
-				p->matrix.mat[x][y] != '1' && p->matrix.mat[x][y] != 'K')
+				p->matrix.mat[x][y] != '1')
 				return (1);
 			else if (p->matrix.mat[x][y] == 'C' || p->matrix.mat[x][y] == 'E' ||
 				p->matrix.mat[x][y] == 'P')

@@ -27,7 +27,6 @@
 # define SIZE 32
 
 # define ESC 65307
-//# define RESET 114
 
 # define TOP 119
 # define LEFT 97
@@ -43,11 +42,8 @@
 # define PATH_E "./imgs/empty.xpm"
 # define PATH_EX_O "./imgs/exit_o.xpm"
 # define PATH_EX_C "./imgs/exit_c.xpm"
-# define PATH_G "./imgs/goblin.xpm"
 
 # define PATH_C_1 "./imgs/item_1.xpm"
-# define PATH_C_2 "./imgs/item_2.xpm"
-# define PATH_C_3 "./imgs/item_3.xpm"
 
 typedef struct s_vector {
 	int			x;
@@ -69,7 +65,10 @@ typedef struct s_matrix {
 }				t_matrix;
 
 typedef struct s_player {
-	void		*img;
+	void		*img_t;
+	void		*img_r;
+	void		*img_l;
+	void		*img_d;
 	t_vector	pos;
 }				t_player;
 
@@ -86,29 +85,6 @@ typedef struct s_sprite {
 	void		*exit;
 }				t_sprite;
 
-typedef struct s_num {
-	void		*zero;
-	void		*one;
-	void		*two;
-	void		*three;
-	void		*four;
-	void		*five;
-	void		*six;
-	void		*seven;
-	void		*eight;
-	void		*nine;
-	int			pos_x;
-}				t_num;
-
-/*typedef struct s_enemy {
-	void		*img;
-	t_vector	pos;
-	int			count;
-	int			random;
-	int			wait;
-	void		*lose;
-}				t_enemy;*/
-
 typedef struct s_program {
 	void		*mlx;
 	t_window	win;
@@ -116,11 +92,7 @@ typedef struct s_program {
 	t_exit		exit;
 	t_sprite	sprite;
 	int			collect;
-	int		count;
 	t_matrix	matrix;
-	t_num		num;
-	//t_enemy		enemy;
-	//void		**anim;
 	int			end;
 }				t_program;
 
@@ -132,13 +104,5 @@ int		ft_key(int key, void *param);
 void	ft_destroyer(t_program *p);
 int		mlx_close(t_program *p);
 void	ft_win(t_program *p, int count);
-void	ft_number_sprite(t_program *p);
-void	ft_count_move(t_program *p);
-void	ft_destroy_num(t_program *p);
-//int		enemy_move(void *param);
-//void	ft_ghost_sprite(t_program *p, int x, int y);
-//int		ft_animation(t_program *p);
-//void	ft_destroy_anim(t_program *p);
-//void	ft_lose(t_program *p);
 
 #endif

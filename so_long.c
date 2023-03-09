@@ -49,8 +49,6 @@ int	mlx_close(t_program *p)
 	mlx_loop_end(p->mlx);
 	mlx_destroy_window(p->mlx, p->win.win);
 	ft_destroyer(p);
-	//free(p->anim);
-	//free(p->collect);
 	while (p->matrix.mat[p->matrix.lines])
 	{
 		free(p->matrix.mat[p->matrix.lines]);
@@ -65,11 +63,8 @@ int	mlx_close(t_program *p)
 void	game_loop(t_program *game)
 {
 	game->end = 0;
-	//game->enemy.random = 0;
-	//game->enemy.wait = 0;
 	mlx_hook(game->win.win, 17, 0, mlx_close, game);
 	mlx_key_hook(game->win.win, *ft_key, game);
-	//mlx_loop_hook(game->mlx, *ft_animation, game);
 	mlx_loop(game->mlx);
 }
 
